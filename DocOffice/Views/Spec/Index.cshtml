@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using DocOffice.Models;
+
+<h1>Spec</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No specs have been added yet!</h3>
+} 
+
+<ul>
+  @foreach(Spec spec in Model)
+  {
+    <li>@Html.ActionLink($"{spec.Name}", "Details", new { id = spec.SpecId })</li>
+  }
+</ul>
+
+
+
+<p>@Html.ActionLink("Add new Spec", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

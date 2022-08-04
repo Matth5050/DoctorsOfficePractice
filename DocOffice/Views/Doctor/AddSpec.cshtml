@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DocOffice.Models.Doctor
+
+<h2>Add a spec</h2>
+
+<h4>Add a spec to this task: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.DoctorId)
+
+    @Html.Label("Select spec")
+    @Html.DropDownList("SpecId")
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Add a Category", "AddSpec", new { id = Model.DoctorId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>

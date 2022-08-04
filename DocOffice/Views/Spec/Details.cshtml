@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DocOffice.Models.Spec;
+
+<h2>Spec Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Spec does not contain any doctors</p>
+}
+else
+{
+  <h4>doctors the Spec contains:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Doctor.Name</li>
+  }
+  </ul>
+}
+
+
+<p>@Html.ActionLink("Back to specialtites", "Index")</p>
+<p>@Html.ActionLink("Edit Spec", "Edit", new { id = Model.SpecId })</p>
+<p>@Html.ActionLink("Delete Spec", "Delete", new { id = Model.SpecId })</p>
